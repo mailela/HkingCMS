@@ -1,0 +1,43 @@
+<div class="header">
+    <div class="container">
+        <div class="toptxt">
+            <div class="diqu"><input type="text" id="city" value="选择地区" /></div>
+
+            <span>您好，欢迎来到{$site[site_name]}</span>
+            {if intval(get_cookie('_userid'))==0}
+            <a href="{U('member/index/register')}" target="_blank">注册</a>|<a href="{U('member/index/login')}"  target="_blank">登录</a>
+            {else}
+            你好：{safe_replace(get_cookie('_username'))}，<a href="{U('member/index/init')}">会员中心</a>|<a href="{U('member/index/logout')}">退出</a>
+            {/if}
+        </div>
+    </div>
+</div>
+<?php
+foreach($site as $k=>$v)
+{
+   // echo '{$site['.$k."]}<br/>";
+}
+?>
+<div class="log-nav">
+    <div class="logo">
+        <a href="{$site[site_url]}"><img src="{$site[site_logo]}"/></a>
+    </div>
+    <div class="nav">
+        <ul class="" id="navul">
+            <li><a  href="{$site[site_url]}"><span>首页</span></a></li>
+            {m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+            {loop $data $v}
+            <li{if isset($catid) && $v['catid']==$catid} class="active" {/if}>
+                <a href="{$v[pclink]}"><span>{$v[catname]}</span></a>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="flexslider">
+    <ul class="slides">
+        <li style="background:url({TPL}/index/images/banner.jpg) 50% 0 no-repeat;"></li>
+        <li style="background:url({TPL}/index/images/banner.jpg) 50% 0 no-repeat;"></li>
+    </ul>
+</div>

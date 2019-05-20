@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <title>{$seo_title}</title>
+    <script type="text/javascript" src="{TPL}/static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="{TPL}/static/js/js.js"></script>
+	<link href="{TPL}/static/plugin/iconfont/iconfont.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static/css/dgy.base.min.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static/css/dgy.head.min.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static/css/dgy.web.3.0.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="{TPL}/static/js/baseMotheds.js"></script>
+  </head>
+  <body class="bgf">
+	<div class="headGroup whiteBg fixed specialDetail specialIndex" id="headGroup">
+        <div class="headWrap">
+            <div class="logoWrap"><a class="logo" title="{$site[site_name]}" href="{$site[site_url]}"></a></div>
+            <div class="menuWrap">
+                <ul>
+                    <li><a {if !isset($catid)} class="current" {/if} href="{$site[site_url]}"><span>首页</span></a></li>
+                    {m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+                    {loop $data $v}
+                    <li>
+                        <a{if isset($catid) && $v['catid']==$catid} class="current" {/if} href="{$v[pclink]}"><span>{$v[catname]}</span></a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="userWrap">
+                <div class="searchWrap" id="searchWrap">
+                    <form method="get" action="{SITE_URL}index.php" target="_blank">
+                    <input type="text" class="searchInput" name="q"/>
+                    <input type="hidden" name="m" value="search" />
+                    <input type="hidden" name="c" value="index" />
+                    <input type="hidden" name="a" value="init" />
+                    <input type="hidden" name="modelid" value="1" id="modelid" />
+                    <button id="searchbtn" type="submit" class="searchBtn doBtn"><i class="iconfont icon-search"></i></button>
+                    <div class="searchBtn coverBtn"><i class="iconfont icon-search"></i></div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 栏目 -->
+	<div class="baseGroup mb20 mt60">
+	    <div class="itemGroup air">
+    	    <div class="itemBox mb20" style="padding:0;">
+	            <div class="headGrid">
+					<h3><b>片刻 / Echo</b></h3>
+					<p>在别处 沉默、相遇和期待</p>
+	            </div>
+	            <div class="itemAirGrid">
+    	            <ul>
+						<!-- 下方catid="1" 为你需要展示的栏目id -->
+                        {m:lists field="title,thumb,inputtime,nickname,url,description,catid" catid="1" limit="6"}
+                        {loop $data $v}	
+    	                <li>
+    	                    <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+    	                        <h3>{str_cut($v['title'], 80)}</h3>
+    	                        <div class="tophead hoverImg">
+									<img class="lazy" width="294" height="160" src="{$v['thumb']}">
+    	                        </div>
+    	                        <div class="article">
+    	                            <p class="description mt10 cf999">{str_cut($v['description'], 180)}</p>
+        	                        <p class="mt15"><span class="cf_green f12">阅读全文 ></span></p>
+    	                        </div>
+    	                    </a>
+    	                </li>
+                        {/loop}
+                        <div class="clearfix"></div>
+    			     </ul>
+    			     <div class="otherInfo">
+    			         <a href="{$site[site_url]}echo/" class="moreBtn" target="_blank">查看更多</a>
+    			     </div>
+			     </div>
+            </div>
+        </div>
+    </div>
+	<!-- / 栏目 -->
+    
+    <!-- 栏目 -->
+    <div class="bgf4">
+    	<div class="baseGroup w1000 mb20 pt40">
+    	    <div class="itemGroup air">
+        	    <div class="itemBox mb20 nobg" style="padding:0;">
+    	            <div class="headGrid">
+    	                <h3><b>造梦者 / Dreamer</b></h3>
+    	                <p>不是尽力，是一定要做到</p>
+    	            </div>
+    	            <div class="itemAirGrid v2">
+        	            <ul>
+							<!-- 下方catid="1" 为你需要展示的栏目id -->
+                            {m:lists field="title,thumb,inputtime,nickname,url,description,catid" catid="1" limit="2"}
+                            {loop $data $v}	
+        	                <li>
+        	                    <div class="itemArticle">
+            	                    <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+            	                        <div class="tophead hoverImg">
+            	                            <img class="lazy" width="294" height="160" src="{$v['thumb']}">
+            	                        </div>
+            	                        <div class="article">
+            	                            <h3>{str_cut($v['title'], 80)}</h3>
+            	                            <p class="description mt10 cf999">{str_cut($v['description'], 180)}</p>
+            	                        </div>
+            	                    </a>
+        	                    </div>
+        	                </li>
+                            {/loop}
+                            <div class="clearfix"></div>
+        			     </ul>
+        			     <div class="otherInfo">
+        			         <a href="{$site[site_url]}dreamer/" class="moreBtn" target="_blank">查看更多</a>
+        			     </div>
+    			     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- / 栏目 -->
+
+	<!-- 栏目 -->
+    <div class="">
+    	<div class="baseGroup mb20 mt20">
+    	    <div class="itemGroup air">
+        	    <div class="itemBox mb20 nobg" style="padding:0;">
+    	            <div class="headGrid">
+    	                <h3><b>互联网 / Internet</b></h3>
+    	                <p>不错过互联网的每个重要时刻</p>
+    	            </div>
+    	            <div class="itemAirGrid">
+        	            <ul>
+							<!-- 下方catid="1" 为你需要展示的栏目id -->
+                            {m:lists field="title,thumb,inputtime,nickname,url,description,catid" catid="1" limit="9"}
+                            {loop $data $v}	
+        	                <li>
+        	                    <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+        	                        <h3>{str_cut($v['title'], 80)}</h3>
+        	                        <div class="tophead hoverImg">
+										<img class="lazy" width="294" height="160" src="{$v['thumb']}">
+        	                        </div>
+        	                        <div class="article">
+        	                            <p class="description mt10 cf999">{str_cut($v['description'], 180)}</p>
+            	                        <p class="mt15"><span class="cf_green f12">阅读全文 ></span></p>
+        	                        </div>
+        	                    </a>
+        	                </li>
+                            {/loop}
+                            <div class="clearfix"></div>
+        			     </ul>
+        			     <div class="otherInfo">
+        			         <a href="{$site[site_url]}internet/" class="moreBtn" target="_blank">查看更多</a>
+        			     </div>
+    			     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ {m:include "index","footer"} 

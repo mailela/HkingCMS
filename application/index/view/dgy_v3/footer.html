@@ -1,0 +1,31 @@
+
+    <div class="commonFooter new">
+         <aside>
+            <ul>
+                <li><a href="{$site[site_url]}">首页</a></li>
+                {m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+                {loop $data $v}
+                <li><a href="{$v[pclink]}">{$v[catname]}</a></li>
+                {/loop}
+            </ul>
+         </aside>
+         <article>
+             <section>
+                 <p><span style="color:#666;">站点声明：本站转载作品版权归原作者及来源网站所有，原创内容作品版权归作者所有，任何内容转载、商业用途等均须联系原作者并注明来源。</span></p>
+                 <p></p>
+                 <p>友情链接：
+        			 {m:link field="url,logo,name" where="status=1" order="listorder ASC" limit="20"}
+        			 {loop $data $v}<a style="padding-right:20px; color:#555;" href="{$v[url]}" target="_blank">{$v[name]}</a>
+        			 {/loop}
+			     </p>
+             </section>
+         </article>
+    </div>
+    <!--widget-->
+    <div id="RbWidget">
+        <a href="#" target="_blank" class="mail" title="联系我们"></a>
+        <a href="#" target="_blank" class="weibo" title="微博关注"></a>
+        <a href="#" class="top cd-top" title="返回顶部"></a>
+    </div>
+  </body>
+</html>

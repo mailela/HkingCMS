@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="543df7be-2828-4089-b64f-0221825c5f29" name="www.hkingcms.com" url="http://mailela.com">
+        <fileTransfer host="mailela.com" port="21" password="dfdadfcedfd3dfc8dfcedfc1dfcbdfe1dfc8dfcfdff9df9ddfd9dfd8dfc2dff9" username="www_hkingcms_com">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

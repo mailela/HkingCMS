@@ -1,0 +1,6 @@
+#
+# robots.txt for HkingCMS v5.1
+#
+User-agent: * 
+Disallow: /cache
+Disallow: /hkingphp

@@ -1,0 +1,134 @@
+<?php include $this->admin_tpl('meta');?>
+<title><?= isset($data)?"添加":"编辑" ?><?=$model["name"]?> - HkingCMS内容管理系统</title>
+<script type="text/javascript" src="<?php echo STATIC_URL;?>plugin/laydate/1.1/laydate.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo STATIC_URL;?>plugin/ueditor/1.4.3.3/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo STATIC_URL;?>plugin/ueditor/1.4.3.3/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="<?php echo STATIC_URL;?>plugin/ueditor/1.4.3.3/lang/zh-cn/zh-cn.js"></script>
+<style>.date{height:30px;padding:4px;width:265px;font-size:14px}</style>
+</head>
+<body>
+<article class="page-container">
+	<form class="form form-horizontal" onsubmit="return checkall()" method="post">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>栏目：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box"><?php
+			if(isset($data)){
+				echo select_category('catid', $data['catid'], '≡ 请选择栏目 ≡', 0, '', true, true, $modelid);
+			}else{
+				echo select_category('catid', $catid, '≡ 请选择栏目 ≡', 0, '', true, true, $modelid);
+			}
+
+			?></span> </div>
+		</div>
+
+		<?php echo $string;?>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<input type="hidden" name="status" value="1">
+				<button name="dosubmit" class="btn btn-primary radius" type="submit" onclick="set_status(1)"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+				<button name="dosubmit" class="btn btn-secondary radius" type="submit" onclick="set_status(0)"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
+				<button onclick="myclose()" class="btn btn-default radius" type="button">&nbsp;&nbsp;关闭&nbsp;&nbsp;</button>
+			</div>
+		</div>
+		<input type="hidden"  value="10"  name="listorder">
+	</form>
+</article>
+
+<?php include $this->admin_tpl('footer');?>
+<script type="text/javascript">
+	function set_top(){
+		if($('#settop').get(0).checked){
+			$("input[name='listorder']").val('1');
+		}else{
+			$("input[name='listorder']").val('10');
+		}	
+	}
+	
+	function set_status(s){
+		$("input[name='status']").val(s);	
+	}
+	
+	function toggle(){ 
+        $("#url").toggle();
+    }
+	
+	function get_seotitle(){
+		var title = $("input[name='title']").val();
+		if(title != ''){
+			$("input[name='seo_title']").val(title+'_<?php echo get_config('site_name');?>');
+		}else{
+			layer.msg('标题不能为空！', {icon:2,time: 2000});
+		}
+	}
+	
+	function myclose(){
+		if(UE.getEditor('content').getContent()!=''){
+			layer.confirm('内容未保存，确定要关闭吗？',function(index){
+				hkingcms_close();
+			});
+		}else{
+			hkingcms_close();
+		}
+	}
+	
+	function checkall(){
+		if($("input[name='title']").val()==''||$("input[name='seo_title']").val()==''){
+			layer.msg('标题或SEO标题不能为空！', {icon:2,time: 2000});
+			return false;
+		}
+		if($("select[name='catid']").val()=='0'){
+			layer.msg('请选择栏目！', {icon:2,time: 2000});
+			return false;
+		}
+		var check = true;
+		$(".required").each(function(){
+			if($(this).val() == ''){
+			  layer.msg($(this).attr('errortips'), {icon:2,time: 2000});
+			  $(this).focus();
+			  check = false;
+			  return false;
+			}
+		})
+		if(!check) return false;
+		if(UE.getEditor('content').getContent()==''){
+			layer.msg('内容不能为空！', {icon:2,time: 2000});
+			return false;
+		}
+		return true;
+	}
+	
+	$(function(){  
+	
+	    //将TAG的选中的值赋值给keywords
+		var count = 0;	
+		$("#taglist :checkbox").click(function(){
+		    var txtvalue = $(this).parent().text();
+			if ($("input[name='keywords']").val() == ""){
+				if ($(this).prop("checked") == true){
+					var txtalso = $.trim(txtvalue);
+				} else {
+					var txtalso = "";
+				}
+			}else {
+				if ($(this).prop("checked") == true){
+					var txtalso = $.trim($("input[name='keywords']").val()) + "," + $.trim(txtvalue);
+				}else {
+					var txtelse = $.trim($("input[name='keywords']").val());
+					var txtnow = $.trim(txtvalue);
+					var reg1 = "," + txtnow;
+					var reg2 = txtnow + ",";
+					var reg3 = txtnow;
+					var txtelse = txtelse.replace(reg1, "").replace(reg2, "").replace(reg3, "");
+					var txtalso = txtelse;
+				}
+			}
+			$("input[name='keywords']").val(txtalso);
+			count++;
+		});
+		
+	});
+</script>
+
+</body>
+</html>
+

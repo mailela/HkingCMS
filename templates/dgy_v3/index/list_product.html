@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <title>{$seo_title}</title>
+    <script type="text/javascript" src="{TPL}/static//js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="{TPL}/static//js/js.js"></script>
+    <link href="{TPL}/static//plugin/iconfont/iconfont.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static//css/dgy.base.min.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static//css/dgy.head.min.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static//css/dgy.web.3.0.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="{TPL}/static//js/baseMotheds.js"></script>
+  </head>
+  <body>
+ <div class="headGroup white fixed" id="headGroup">
+    <div class="headWrap">
+        <!-- logoWrap -->
+        <div class="logoWrap"><a class="logo" title="{$site[site_name]}" href="{$site[site_url]}"><img class="logoImg" src="http://v3cdn.duoguyu.com/images/logo_125x75.jpg" alt="{$site[site_name]}"></a></div>
+        <!-- menuWrap -->
+        <div class="menuWrap">
+            <ul>
+                <li><a {if !isset($catid)} class="current" {/if} href="{$site[site_url]}"><span>首页</span></a></li>
+                {m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+                {loop $data $v}
+                <li>
+                    <a{if isset($catid) && $v['catid']==$catid} class="current" {/if} href="{$v[pclink]}"><span>{$v[catname]}</span></a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <!-- userWrap -->
+        <div class="userWrap">
+            <!-- searchWrap -->
+            <div class="searchWrap" id="searchWrap">
+                <form method="get" action="{SITE_URL}index.php" target="_blank">
+                <input type="text" class="searchInput" name="q"/>
+                <input type="hidden" name="m" value="search" />
+                <input type="hidden" name="c" value="index" />
+                <input type="hidden" name="a" value="init" />
+                <input type="hidden" name="modelid" value="1" id="modelid" />
+                <button id="searchbtn" type="submit" class="searchBtn doBtn"><i class="iconfont icon-search"></i></button>
+                <div class="searchBtn coverBtn"><i class="iconfont icon-search"></i></div>
+                </form>
+            </div>
+            <!-- loginBox -->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- fullPitch 置顶 -->
+    <div class="fullPitch list">
+        <h2>{get_catname($catid)}</h2>
+        <div class="otherInfo">
+            <span>{$seo_description}</span>
+        </div>
+    </div>
+    <!-- fullTabs 热门标签 -->
+    <div class="fullTabs" id="headFullTabs">
+       <div class="menuBox">
+			{m:tag field="id,tag,total" limit="8"}
+			{loop $data $v}
+               <span><a href="{U('search/index/tag',array('id'=>$v['id']))}" target="_blank">{$v[tag]}</a></span>
+			{/loop}
+       </div>
+    </div>
+</div>
+	     
+	<!-- itemGrid for hot -->
+	<div class="baseGroup w1240 mb20 mt20">
+	    <div class="itemGroup">
+
+    	    <div class="itemGroup">
+    	        <!-- leftGrid -->
+    	        <div class="leftGrid w920">
+                    <!-- itemBox 列表内容 -->
+                    <div class="itemBox mb20" style="padding:0;">
+        	            <div class="headGrid" style="padding:10px 22px 0;">
+        	                <h3 style="border-bottom:0;"><b>推荐</b></h3>
+        	            </div>
+        	            <!-- listMoreGroup -->
+        	            <div class="listMoreGroup">
+        	                <div class="itemGrid">
+                	            <ul>
+                                    {m:lists field="title,thumb,inputtime,nickname,url,description,catid" catid="$catid" limit="20" page="page"}
+                                    {loop $data $v}	
+                	                <li>
+                	                    <div class="article_box">
+                    	                    <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+                    	                        <div class="tophead h125 hoverImg">
+                    	                            <img class="lazy" width="294" height="160" data-original="{$v['pictures']}" src="{$v['pictures']}">
+                    	                        </div>
+                    	                        <article class="h150">
+                    	                            <h3>{str_cut($v['title'], 60)}</h3>
+                    	                            <p class="description cf999">{str_cut($v['description'], 180)}</p>
+                    	                            <p class="mt15"><span class="cf_green f12">阅读全文 ></span></p>
+                    	                        </article>
+                    	                    </a>
+                	                    </div>
+                	                </li>
+                                    {/loop}
+                                    <div class="clearfix"></div>
+                			     </ul>
+                			     <div class="line"></div>
+            			     </div>
+            	        </div>
+        	            <!-- / listMoreGroup -->
+                    </div>
+                    <div id="pageGroup">{$pages}</div>
+                    <!-- / itemBox 列表内容 -->
+    	        </div>
+    	        <!-- rightGrid -->
+    	        <div class="rightGrid">
+    	            <!-- 广告位 -->
+    	            <div class="itemBox mb20" style="padding:0">
+    	                <div class="adGrid" style="margin:0;">{adver(1)}</div>
+    	            </div>
+    	            <!-- / 广告位 -->
+    	            <!-- 相关推荐 -->
+    	            <div class="itemBox mb20">
+        	            <div class="headGrid">
+        	                <h3><b>热门</b></h3>
+        	            </div>
+        	            <div class="tabInfoBox detail">
+                            {m:hits field="title,thumb,inputtime,nickname,url,description,catid" catid="$catid" limit="4"}
+                            {loop $data $v}
+                            <div class="aside">
+                                <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+    	                            <h3>{$v['title']}</h3>
+	                                <div class="desc mb15">{str_cut($v['description'], 110)}</div>
+                                </a>
+                            </div>
+                            {/loop}
+        	            </div>
+        	            <!-- adGrid 广告位 -->
+        	            <div class="adGrid">
+                            {adver(1)}
+        	            </div>
+        	            <!-- / adGrid 广告位 -->
+    	            </div>
+    	            <!-- / 相关推荐 -->
+    	        </div>
+    	    </div>
+        	
+            
+        </div>
+    </div>
+{m:include "index","footer"}

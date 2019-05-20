@@ -1,0 +1,371 @@
+/*
+** Name: dgy.web.3.0.css
+** Date: 2017/12/18.
+** Author: tonney.
+** Version: 3.0.0.
+** WebSite: www.duoguyu.com
+** Last: 2018/04/02/tonney.
+*/
+
+/*
+* itemGroup
+*/
+.itemGroup{}
+.itemGroup:after{ content:''; clear:both; height:0;}
+.itemGroup .leftGrid,.itemGroup .rightGrid{ min-height:415px; overflow:hidden;}
+.itemGroup .leftGrid{ width:960px; float:left;}
+.itemGroup .leftGrid.w920{width:920px;}
+.itemGroup .leftGrid.w900{width:900px;}
+.itemGroup .rightGrid{ width:300px; float:right;}
+
+.itemGroup .itemBox{ /*height:415px;*/ -moz-border-radius:4px; border-radius:4px; overflow:hidden; background:#fff; padding:10px;}
+.itemGroup .itemBox.nobg{ background:none;}
+.itemGroup .itemBox.pb0{ padding-bottom:0;}
+.itemGroup .itemBox.h320{ height:320px;}
+.itemGroup .itemBox.h415{ height:415px;}
+
+.itemGroup .ulGrid{ overflow:hidden;}
+.itemGroup .ulGrid li{ padding:0 10px 5px; line-height:30px; font-size:12px; color:#666; overflow:hidden;}
+.itemGroup .ulGrid li a{ position:relative; font-size:12px; display: block; -moz-border-radius: 4px; border-radius: 4px; background:#f6f6f6; padding: 4px 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.itemGroup .ulGrid.point li a{ padding-left:25px;}
+.itemGroup .ulGrid.point li a i{display:block; width:4px; height:4px; -moz-border-radius:50%; border-radius:50%; position:absolute; left:14px; top:50%; margin-top:-2px; overflow:hidden; background-color:#283042;}
+.itemGroup .ulGrid li a:hover{ background:#f2f2f2; box-shadow: 0 0 10px #ccc; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; transition: all .2s ease;}
+
+.itemWrap{padding: 0 5px 10px;}
+.itemWrap .articleBox{ display:block; -webkit-border-radius:4px; -moz-border-radius:4px;  border-radius:4px; overflow:hidden;}
+.itemWrap .articleBox ul{}
+.itemWrap .articleBox li{ width:33.3333%;float:left; background:#fff;overflow:hidden;}
+.itemWrap .articleBox li a{ display:block; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; height:100%; color:#444; font-size:12px; padding:20px; position:relative; overflow:hidden;}
+
+.itemWrap .articleBox.v2 li{ padding:5px;}
+.itemWrap .articleBox.v2 li a:hover{box-shadow: 0 0 38px rgba(0,0,0,.12) inset;}
+
+.itemWrap .articleBox li .topAside{ margin-bottom:10px; background:#f2f2f2; overflow:hidden; height:140px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; position:relative;} 
+.itemWrap .articleBox li .topAside img{ display:block; width:110%; margin-left:-5%; height:auto; border:0;}
+.itemWrap .articleBox li .topAside .iconFlag{display: inline-block; font-size: 12px; color:#fff; text-shadow:0 0 3px #333; position: absolute; left: 15px; top: 10px; z-index:10;}
+.itemWrap .articleBox li .topAside span { display:block; position: absolute; right: 10px; bottom: 10px; width: 30px; height: 30px; background: #fff; opacity: .85; -moz-opacity: .85; filter: alpha(opacity=85); -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; text-align: center; zoom: 1; }
+.itemWrap .articleBox li .topAside span i { display: inline-block; zoom: 1; vertical-align: top; margin: 8px 0 0 3px; width: 0px; height: 0px; border-style: solid; border-width: 7px 0 7px 10px; line-height: 0px; border-color: transparent transparent transparent #000; _border-color: #fff #fff #fff #000; _filter: progid:DXImageTransform.Microsoft.Chroma(color='#fff');}
+.itemWrap .articleBox li .midInfo{opacity:1; -moz-transition: all .15s ease-out; -webkit-transition: all .15s ease-out; transition: all .15s ease-out;}
+.itemWrap .articleBox li .midInfo h4{ line-height:24px; font-size:14px; color:#333; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.itemWrap .articleBox li .midInfo p{line-height:16px; color: #B2B2B2; font-size: 12px; overflow:hidden;}
+.itemWrap .articleBox li .midInfo p.h40{ line-height:18px; height:40px; margin-bottom:10px;}
+.itemWrap .articleBox li a footer{ color:#0ad; font-size:12px; color:#5079d9;}
+.itemWrap .articleBox li a:hover{ box-shadow: 0 0 38px rgba(0,0,0,.08) inset; -moz-transition: all .15s ease-out; -webkit-transition: all .15s ease-out; transition: all .15s ease-out;}
+
+.itemWrap .articleBox li a:hover .topAside span {opacity: .75; -moz-opacity: .75; filter: alpha(opacity=75);}
+.itemWrap .articleBox li a:hover .topAside span i {opacity: .85; -moz-opacity: .85; filter: alpha(opacity=85);}
+
+.itemWrap .articleBox .footerHgroup{ height:70px; width:100%; color:#666; position:absolute; left:0; bottom:-80px;-moz-transition: all .2s ease-out; -webkit-transition: all .2s ease-out; transition: all .2s ease-out; padding:14px 20px 0; line-height:16px; overflow:hidden; z-index:10;}
+.itemWrap .articleBox .footerHgroup .cat_status{ width:100px; background:#04ac71; margin:5px auto; text-align:center; font-size:12px; color:#fff; height:26px; line-height:26px; border-radius:15px; -webkit-border-radius:15px; -moz-border-radius:15px;}
+.itemWrap .articleBox .footerHgroup .cat_status.bg_red { background: #f30; }
+.itemWrap .articleBox .footerHgroup .cat_status.bg_brown { background: #607d8b; }
+.itemWrap .articleBox .footerHgroup .cat_status.bg_green { background: #04ac71; }
+.itemWrap .articleBox .footerHgroup .cat_status.bg_blue { background: #78c2ea; }
+.itemWrap .articleBox .footerHgroup .cat_status.bg_yellow { background: #ffae00; }
+.itemWrap .articleBox .footerHgroup .cat_status.bg_purple { background: #a88add; }
+.itemWrap .articleBox .footerHgroup .cat_status.bg_flesh { background: #a498ae; }
+
+.itemGroup.air{ margin-bottom:40px;}
+.itemGroup.air .headGrid{ padding:15px 0 30px; text-align: center;}
+.itemGroup.air .headGrid h3{font-size: 24px; border-bottom:0; font-family: Circular, "PingFang-SC", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "Heiti SC" !important;}
+.itemGroup.air .headGrid h3 b{ font-weight:normal; border-bottom:0;}
+.itemGroup.air .headGrid p{ font-size:12px; color:#999; letter-spacing: 2px;}
+
+.itemAirGrid{ margin:0 -15px 40px;}
+.itemAirGrid ul{ overflow:hidden; border-bottom:1px solid #eee; margin-bottom:10px;}
+.itemAirGrid li{ width:33.3333%; padding:5px 15px 15px; float:left;}
+.itemAirGrid li .tophead{ height:140px; overflow:hidden; background:#f2f2f2;}
+.itemAirGrid li .tophead img{ display:block; width:100%; height:auto; border:0; overflow:hidden; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease;}
+.itemAirGrid li h3{color:#333; font-size:16px; font-weight: bold; line-height:30px; height:30px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-bottom:10px;}
+.itemAirGrid li .article{ background:#fff; padding:10px 0 20px; height:150px; color:#666; font-size:14px; overflow:hidden;}
+.itemAirGrid li .article p{ line-height:20px;}
+.itemAirGrid li:hover h3{color:#04ac71;}
+.itemAirGrid .otherInfo{ text-align:center; padding:10px;}
+.itemAirGrid .otherInfo .moreBtn{ padding:0 45px; display:inline-block; text-align:center; -moz-border-radius:18px; border-radius:18px; border:1px solid #eee; /*background:#04ac71;*/ color:#aaa; line-height:34px; overflow:hidden;}
+.itemAirGrid .otherInfo .moreBtn:hover{ background:#04ac71; color:#fff; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease;}
+
+.itemAirGrid.v2 ul{ border-bottom:0;}
+.itemAirGrid.v2 .otherInfo .moreBtn{ border:1px solid #ddd;}
+.itemAirGrid.v2 li{ width:50%;}
+.itemAirGrid.v2 .itemArticle{ padding:20px; -moz-border-radius:5px; border-radius:5px; overflow:hidden; border: 1px solid #efefef; background: #fafafa; box-shadow: 0 0 16px rgba(0,0,0,0.05);}
+.itemAirGrid.v2 li .article{ background:none;}
+.itemAirGrid.v2 li h3{ font-weight:bold; border-bottom: 1px dotted #ddd; padding-bottom: 10px; height: 40px; margin-bottom: 15px;}
+.itemAirGrid.v2 li p{ color:#999;}
+.itemAirGrid.v2 li:hover .itemArticle{ background:#fff;}
+.itemAirGrid.v2 li:hover h3{color:#333;}
+
+
+.itemGroup .leftGrid.weekly{}
+.itemAirGrid.weekly {margin:0 20px 30px -15px; padding-right:25px; border-right:1px solid #eee;}
+.itemAirGrid.weekly ul{ padding-bottom:40px;}
+.itemAirGrid.weekly li{ width:50%; padding: 0 15px 20px;}
+.itemAirGrid.weekly li .tophead{ height:125px; -moz-border-radius: 4px; border-radius: 4px; overflow: hidden;}
+
+/* indexFocusGrid */
+.indexFocusGrid{ margin-bottom:15px;}
+.indexFocusGrid .focusWrap{ width:960px; height:320px; -moz-border-radius: 4px; border-radius: 4px; overflow: hidden; background: #fff;}
+.indexFocusGrid .focusWrap .img{ display:block; width:960px; height:320px; border:0;}
+
+/*
+* articleGroup
+*/
+.articleGroup{}
+.articleGroup .itemUl{padding:0 20px;}
+.articleGroup .itemLi{ padding:10px 0; border-bottom:1px solid #eee; color:#999; font-size:12px; line-height:16px;}
+.articleGroup .itemLi .topGrid{min-height:20px; line-height:20px;}
+.articleGroup .itemLi .midGrid{ padding:10px 0; position:relative;}
+.articleGroup .itemLi .midGrid h2{ font-size:14px; color:#333; line-height:20px; margin-bottom:5px;}
+.articleGroup .itemLi .midGrid p{ font-size:12px; color:#666; line-height:16px;}
+.articleGroup .itemLi .midGrid.hasImg{ padding-right:100px; min-height:100px;}
+.articleGroup .itemLi .midGrid .imgBox{width:90px; height:90px; background:#f2f2f2; position:absolute; right:0; top:5px; overflow:hidden; border-radius:4px;}
+.articleGroup .itemLi .midGrid .imgBox.bg{}
+.articleGroup .itemLi .ftrGrid{}
+
+
+/*article*/
+.articleImg{margin: -100px -80px 0; height: 360px; overflow: hidden; position:relative;}
+.articleImg .img{width:100%; height: 360px; overflow: hidden;}
+.articleImg .textBox{ position: absolute; left: 0; bottom: 40px; z-index:10; padding:0 40px; width: 100%; font-size:14px; color:#fff; line-height:28px; vertical-align:bottom; overflow:hidden;}
+.articleImg .textBox h1{ font-size:28px; color:#fff; line-height:32px; vertical-align:bottom;}
+.articleImg .moreInfo{ font-size:14px; color:#fff; line-height:28px;}
+.articleImg .moreInfo>span{ margin-right:10px; color:#ccc;}
+
+.overlay { position: absolute; top: 0; bottom: 0; width: 100%; -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; transition: all 0.2s ease;
+    background-image: -webkit-linear-gradient(180deg, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.85) 100%);
+    background-image: -moz-linear-gradient(180deg, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.85) 100%);
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 5%,rgba(0,0,0,0.85) 100%);
+    background-size: 100%;}
+
+/*list hot*/
+.listHotGroup{padding:0 10px;  overflow:hidden;}
+.listHotGroup .itemGrid{overflow:hidden;}
+.listHotGroup .itemGrid ul{ margin-left:-1px; overflow:hidden;}
+.listHotGroup .itemGrid li{ width:33.3333%; float:left;}
+.listHotGroup .itemGrid li .tophead{ height:160px; overflow:hidden; background:#f2f2f2;}
+.listHotGroup .itemGrid li .tophead img{ display:block; width:100%; height:auto; border:0; overflow:hidden; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease;}
+.listHotGroup .itemGrid li article{ background:#fff; padding:20px; height:160px; color:#666; border-left:1px solid #eee; border-bottom:1px solid #eee; font-size:12px; overflow:hidden;}
+.listHotGroup .itemGrid li article.bb0{ border-bottom:0;}
+.listHotGroup .itemGrid li article h3{color:#333; font-size:14px; line-height:20px; height:20px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-bottom:10px;}
+.listHotGroup .itemGrid li article p{ line-height:20px;}
+.listHotGroup .itemGrid li article .date{color:#999; font-size:12px;}
+.listHotGroup .itemGrid li article .author{color:#04ac71;}
+.listHotGroup .itemGrid li:hover h3{color:#04ac71;}
+
+/* listMoreGroup */
+.listMoreGroup{ padding:0 20px; margin-top:-10px;}
+.listMoreGroup .itemGrid {  position:relative;}
+.listMoreGroup .itemGrid .line{ position:absolute; left:-1px; top:0; height:100%; width:1px; background:#fff;}
+.listMoreGroup .itemGrid ul{margin-left:-1px; margin-top:-1px;}
+.listMoreGroup .itemGrid li { float: left; width: 33.3333%; padding:20px; border-left:1px solid #eee; border-top:1px solid #eee; }
+.listMoreGroup .itemGrid li .article_box{border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; transition: all .2s ease; overflow: hidden;}
+.listMoreGroup .itemGrid li .tophead{ height:140px; position:relative; overflow:hidden; background:#f2f2f2; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
+.listMoreGroup .itemGrid li .tophead.h125{ height:125px;}
+.listMoreGroup .itemGrid li .tophead img{ display:block; width:100%; height:auto; border:0; overflow:hidden; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease;}
+.listMoreGroup .itemGrid li .tophead .iconFlag{display: inline-block; font-size: 12px; color:#fff; text-shadow:0 0 3px #333; position: absolute; left: 15px; top: 10px; z-index:10;}
+
+.listMoreGroup .itemGrid li:hover { position:relative; z-index:10; box-shadow: 0 0 20px #ddd; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; transition: all .2s ease; }
+
+.listMoreGroup .itemGrid li article{ background:#fff; padding:10px 0; height:200px; color:#777; font-size:12px; overflow:hidden; border-radius: 0 0 5px 5px;}
+.listMoreGroup .itemGrid li article.h135{ height:135px;}
+.listMoreGroup .itemGrid li article.h150{ height:150px;}
+.listMoreGroup .itemGrid li article.h180{ height:180px;}
+.listMoreGroup .itemGrid li article.h190{ height:190px;}
+.listMoreGroup .itemGrid li article h3{color:#333; font-size:14px; line-height:30px; height:30px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.listMoreGroup .itemGrid li article p{ font-size:12px; line-height:20px; color:#999; overflow:hidden;}
+.listMoreGroup .itemGrid li article p.description{ height:60px;}
+.listMoreGroup .itemGrid li article p.h40{ height:40px;}
+.listMoreGroup .itemGrid li article p.cf999{color:#999;}
+.listMoreGroup .itemGrid li article .date{color:#999; font-size:12px; margin-left:10px;}
+
+.listMoreGroup.weekly .itemGrid article{ height:160px;}
+.listMoreGroup.weekly .itemGrid article p.description{ height: 45px;}
+
+.listMoreGroup .itemGrid .more_link { display: block; width: 230px; margin: 25px auto 0; height: 40px; line-height: 38px; border: 1px solid #ddd; font-size: 12px; color: #666; overflow: hidden; text-align: center; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; transition: all .2s ease;}
+.listMoreGroup .itemGrid .more_link>p{ line-height: 38px;}
+
+.listMoreGroup .itemGrid .more_link:hover{ background:#51e0c1; color:#fff; border: 1px solid #51e0c1;}
+
+.listMoreGroup .itemGrid .more_link:hover p{ color:#fff;}
+.listMoreGroup .itemGrid .more_link:hover p.linkHolder{ margin-top:-38px;}
+
+.listMoreGroup .itemGrid .more_link.c7:hover{ background:#ffae00; border: 1px solid #ffae00;}
+.listMoreGroup .itemGrid .more_link.c8:hover{ background:#a498ae; border: 1px solid #a498ae;}
+.listMoreGroup .itemGrid .more_link.c9:hover{ background:#f64480; border: 1px solid #f64480;}
+.listMoreGroup .itemGrid .more_link.c10:hover{ background:#04ac71; border: 1px solid #04ac71;}
+
+/* listArticle */
+.listMoreGroup.listArticle{padding: 0; margin: 0 -10px;}
+.listMoreGroup.listArticle .itemGrid li { padding: 10px; border:0;}
+.listMoreGroup.listArticle .article_box{ background:#fff;}
+.listMoreGroup.listArticle .itemGrid li .tophead{border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0;}
+.listMoreGroup.listArticle .itemGrid li article{ padding:20px 25px;}
+.listMoreGroup.listArticle .itemGrid li:hover { box-shadow:none; }
+.listMoreGroup.listArticle .itemGrid .article_box:hover {box-shadow: 0 0 20px #ccc; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; transition: all .2s ease; }
+
+/*weekly*/
+.listMoreGroup.weekly .itemGrid li { width:50%;}
+.listMoreGroup.weekly .itemGrid .tophead { height: 200px;}
+.specialArticlePage{}
+
+
+/*otherInfoBox*/
+.otherInfoBox{}
+.otherInfoBox .aside{ display:block; position:relative; height:370px; padding:10px; overflow:hidden;}
+.otherInfoBox .aside .iconSpan{ display:inline-block; padding:0 15px; height:24px; line-height:24px; font-size:12px; background:rgba(0,0,0,.6); color:#fff; -moz-border-radius:9px; border-radius:12px; position:absolute; left:15px; top:15px;}
+.otherInfoBox .aside .article{ line-height:16px; font-size:12px; color:#fff; position:absolute; left:0; bottom:15px; width:100%; padding:0 15px;}
+.otherInfoBox .aside h2{ line-height:24px; font-size:16px; color:#fff;}
+.otherInfoBox .aside p{ line-height:14px; font-size:12px;}
+
+/*tabInfoBox*/
+.tabInfoBox{}
+.tabInfoBox.h450{ height:450px; overflow:hidden;}
+.tabInfoBox .aside{ padding:5px 10px; line-height:30px; font-size:12px; color:#666; overflow:hidden; -moz-transition: none; -webkit-transition: none; transition: none;}
+.tabInfoBox .aside a{ display: block; -moz-border-radius: 4px; border-radius: 4px; background:#f6f6f6; padding: 4px 12px; overflow: hidden;}
+.tabInfoBox .aside p{ line-height:30px; font-size:12px; position:relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.tabInfoBox .aside .bannerBox{ display:block; height:0; background:#f2f2f2; overflow:hidden;}
+.tabInfoBox .aside .bannerBox>img{ display:block; width:100%; height:auto; overflow:hidden;}
+.tabInfoBox .aside.show .bannerBox{ height:105px; padding-top:5px;}
+.tabInfoBox .aside.point p{ padding-left: 15px;}
+.tabInfoBox .aside.point p i{display:block; width:4px; height:4px; -moz-border-radius:50%; border-radius:50%; position:absolute; left:2px; top:50%; margin-top:-2px; overflow:hidden; background-color:#283042;}
+.tabInfoBox .aside a:hover{ background:#f4f4f4; color:#51e0c1;}
+.tabInfoBox .aside a:hover i{ /*background-color:#51e0c1;*/}
+
+.tabInfoBox.detail{padding: 0 10px;}
+.tabInfoBox.detail .aside { padding:0 0 5px; margin-bottom:15px; border-bottom: solid 1px #eee;}
+.tabInfoBox.detail .aside a{ background:#fff;}
+.tabInfoBox.detail .aside h3 {line-height: 16px; font-size:14px; margin-bottom: 6px; color:#333;}
+.tabInfoBox.detail .aside .desc { color: #999; font-size: 12px; line-height: 18px; overflow: hidden; text-align: justify;}
+.tabInfoBox.detail .aside .info { margin-top: 10px; font-size: 12px; color: #aaa;}
+
+/*
+* midMenuGroup
+*/
+.midMenuGroup{}
+.midMenuGroup:after{ content:''; clear:both; height:0;}
+
+.midMenuGroup .ulGrid{ margin-left:-10px; margin-right:-10px; overflow:hidden;}
+.midMenuGroup .ulGrid li{ display:inline-block; float:left; width:25%; padding:5px 10px; line-height:16px; font-size:12px; color:#666; overflow:hidden;}
+.midMenuGroup .ulGrid li a{ display: block; height:60px; -moz-border-radius: 4px; border-radius: 4px; background:#fff; padding: 10px 20px 10px 60px; position:relative; overflow: hidden;}
+.midMenuGroup .ulGrid li h2{height:20px; color:#333; line-height:20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.midMenuGroup .ulGrid li p{height:20px; color:#999; line-height:20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.midMenuGroup .ulGrid li .iconSpan{ display: block; height:40px; width:40px; line-height:40px; text-align:center; position:absolute; top:10px; overflow: hidden;}
+.midMenuGroup .ulGrid li .iconSpan.leftIcon{ color:#333; left:10px;}
+.midMenuGroup .ulGrid li .iconSpan.rightArrow{ width:20px; color:#aaa; right:10px;}
+.midMenuGroup .ulGrid li a:hover{opacity:.9;}
+.midMenuGroup .ulGrid li a:hover h2{ color:#51e0c1;}
+
+.midMenuGroup .fullImgGrid{ margin-left:-10px; margin-right:-10px; overflow:hidden;}
+.midMenuGroup .fullImgGrid li{ display:inline-block; float:left; width:33.3333%; padding:5px 10px; line-height:16px; font-size:12px; color:#666;}
+
+.midMenuGroup .fullImgLink{ display: block; height:150px; -moz-border-radius: 4px; border-radius: 4px; background:#fff; box-shadow: 0 0 8px #ccc; position:relative; overflow:hidden;}
+.midMenuGroup .fullImgLink .focusImg{ width:100%; height:150px; -moz-border-radius: 4px; border-radius: 4px; background:url(../images/focusImg.jpg) no-repeat left center; background-size:cover; position:absolute; left:0; top:0; right:0; overflow: hidden;}
+.midMenuGroup .fullImgLink .focusImg:before{ content:''; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.4);}
+
+.midMenuGroup .articleGrid{ display: block; width:130px; height:100%; background:#fff; padding:15px; position:absolute; right:40px; top:0; overflow: hidden; z-index:10;}
+.midMenuGroup .articleGrid h2{ color:#333; line-height:16px; font-size:14px; margin-bottom:10px; overflow: hidden;}
+.midMenuGroup .articleGrid p{ color:#999; line-height:20px; font-size:12px; overflow: hidden;}
+
+.midMenuGroup .articleGrid.v2{ width:100%; padding-top:60px; background:none; right:0; left:0; top:0; bottom:0; background: url(../images/black-bg.png) center 10px no-repeat;}
+.midMenuGroup .articleGrid.v2 .article{ color:#fff; height:36px; line-height:18px; vertical-align:bottom; overflow:hidden; margin-bottom:10px;}
+.midMenuGroup .articleGrid.v2 h2{ color:#ddd; line-height:18px; font-weight:normal; margin-bottom:0;}
+.midMenuGroup .articleGrid.v2 .otherInfo{ padding-top:10px; /*border-top:1px solid #ddd;*/}
+.midMenuGroup .articleGrid.v2 .otherInfo p{color:#fff;}
+
+.midMenuGroup .fullImgGrid .iconSpan{ display: block; height:40px; width:40px; line-height:40px; text-align:center; position:absolute; top:10px; overflow: hidden;}
+
+.midMenuGroup .fullImgGrid .iconSpan.leftIcon{ color:#333; left:10px;}
+.midMenuGroup .fullImgGrid .iconSpan.rightArrow{ width:20px; color:#aaa; right:10px;}
+.midMenuGroup .fullImgGrid a:hover .focusImg:before{ background:rgba(0,0,0,.1);}
+
+.midMenuGroup .fullImgGrid.v3 .fullImgLink{ height:120px;}
+.midMenuGroup .fullImgGrid.v3 .articleGrid{padding-top: 30px; }
+
+.midMenuGroup.guess .fullImgLink{height:120px;}
+.midMenuGroup.guess .fullImgLink .focusImg{ height:160px; }
+.midMenuGroup.guess .articleGrid.v2{ padding-top:30px;}
+.midMenuGroup.guess .articleGrid.v2 h2{ font-size:14px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; font-weight: normal;}
+
+
+/*
+* articleMode
+*/
+.articleMode{ background: #fff; padding: 100px 80px; text-align: justify; -moz-border-radius: 4px; border-radius: 4px; overflow: hidden;}
+.articleMode .topInfo{ text-align:right; font-size:12px; color:#666; line-height:20px; margin-bottom:50px;}
+
+.articleMode.detail{ padding:0 50px 100px 30px; margin-right:30px; border-right: 1px solid #eee;}
+
+.articleMode .channelSiteInfo{ margin:30px 0; text-align: right;}
+.articleMode .channelSiteInfo span{ padding-right:5px; font-size:12px;}
+.articleMode .topInfo span{ padding-left:5px; font-size:12px;}
+.articleMode .articleDetail{ margin-top:20px; padding-top:20px; border-top:1px dotted #ddd; text-align:justify;}
+.articleMode .articleDetail p{ /*text-indent: 2em;*/ color: #333; line-height: 24px; font-size: 15px !important; margin-bottom: 10px; text-align:justify;}
+.articleMode .articleDetail span{ font-size:14px !important;}
+.articleMode .articleDetail p>img{ display:block; max-width:640px; height:auto; margin:10px auto; text-align:center;}
+.articleMode .footerInfo{ margin-top:20px; padding-top:20px; border-top:1px dotted #ddd;}
+.articleMode .footerInfo.top{ text-align:right; border-top:0; margin-top:0;}
+.articleMode .footerInfo .iconSpan{ font-size:12px; padding:4px 10px; line-height:12px; border-radius:4px; background:#f4f4f4; color:#999; margin-left:5px;}
+.articleMode .footerInfo .iconSpan:hover{background:#51e0c1; color:#fff;}
+
+.articleMode .linkGrid{ padding-top:100px;}
+.articleMode .linkGrid .linkBody{ line-height:16px; color:#999; font-size:12px;}
+.articleMode .linkGrid .linkBody span{ font-size:12px; padding-right:10px; color:#999;}
+.articleMode .linkGrid .linkBody a{ font-size:12px; color:#999;}
+.articleMode .linkGrid .linkBody a:hover{color:#51e0c1;}
+
+.articleMode .copyInfo{ text-align:center; padding:120px 0; font-size:12px; color:#999; line-height:18px; border-bottom:1px dotted #ddd;}
+.articleMode .copyInfo .theEnd{ font-size:24px; color:#333; line-height:36px;}
+.articleMode .copyInfo .theEnd>span{ font-size:16px; color:#ccc; padding:0 5px; line-height:36px; vertical-align: text-bottom;}
+.articleMode .copyInfo .theEnd>b{ font-size:24px; color:#333; line-height:36px; font-family: "simsun", 'Luxi Sans', 'DejaVu Sans', Tahoma,'Helvetica Neue';}
+.articleMode .copyInfo .channelSite{ margin:0 5px; color:#5079d9;}
+
+.commentGrid{ padding:20px 0;}
+.commentGrid .textGroup{ border:1px solid #ddd; padding:12px 15px; margin-bottom:10px; background:#f4f4f4; border-radius:4px; position:relative;}
+.commentGrid .textGroup .textAera{border:0; background:none; font-size:14px; line-height:18px; color:#666; height:36px; width:100%; display:block; resize: none;}
+.commentGrid .textGroup .subBtn{ cursor: pointer; display:block; height:30px; line-height:30px; color:#fff; font-size:14px; width:80px; border-radius:4px; position:absolute; right:-1px; top:65px; text-align:center; background:#51e0c1; overflow:hidden;}
+
+.emotion{display: inline-block; padding-left:25px; cursor: pointer; background:url('../images/logo20x20.png') no-repeat left center;}
+
+.comment_list{ margin:25px 0; overflow:hidden;}
+.comment_list_top{color:#666; font-size:14px; padding:0 12px; font-weight:bold; height:30px; line-height: 30px; border-bottom: 1px dotted #ddd;}
+.comment_list_body ul{padding:0 12px;}
+.comment_list_body ul li{padding:10px 0;border-bottom: 1px dotted #ddd;overflow:hidden;}
+.comment_list_body ul li:last-child{border-bottom:none;}
+
+
+.weeklyGroup{background:url('http://v3cdn.duoguyu.com/images/weekly-bg.png') no-repeat center; height:700px; border-bottom:1px solid #f4f4f4;}
+.weeklyGroup .weeklyWrap{ width:1000px; margin:20px auto; -moz-border-radius:4px; border-radius:4px; background:#fff; padding:50px; overflow:hidden; box-shadow: 0 0 5px 0 rgba(228,228,228,.5), 0 0 14px 0 rgba(227,227,227,.5);}
+.weeklyGroup .weeklyWrap ul{ margin-left:-40px; margin-right:-40px;}
+.weeklyGroup .item{ width:33.3333%; padding:0 40px; float:left; height:285px; border-left:1px dotted #ddd; overflow:hidden;}
+.weeklyGroup .item:first-of-type{border-left:0;}
+.weeklyGroup .item h2{ text-align:center; font-size:18px; color:#333; line-height:24px; height:24px; margin-bottom:5px; overflow:hidden;}
+.weeklyGroup .item .info{ text-align:center; font-size:13px; color:#999; line-height:18px; height:18px; margin-bottom:35px; overflow:hidden;}
+.weeklyGroup .item .article{ font-size:14px; color:#999; line-height:26px; height:135px; margin-bottom:30px; text-align: justify; overflow:hidden;}
+.weeklyGroup .otherInfo{ text-align:center; padding:10px;}
+.weeklyGroup .otherInfo .moreBtn{ padding:0 45px; display:inline-block; text-align:center; -moz-border-radius:18px; border-radius:18px; border:1px solid #eee; color:#aaa; line-height:34px; overflow:hidden;}
+.weeklyGroup .otherInfo .moreBtn:hover{ background:#04ac71; color:#fff; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease;}
+
+.weeklyGroup .headGrid{ padding:15px 0 30px; text-align: center;}
+.weeklyGroup .headGrid h3{font-size: 24px; border-bottom:0; font-family: Circular, "PingFang-SC", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "Heiti SC" !important;}
+.weeklyGroup .headGrid h3 b{ font-weight:normal; border-bottom:0;}
+.weeklyGroup .headGrid p{ font-size:12px; color:#999; letter-spacing: 2px;}
+
+.baseGroup.weekly, .weekly .commonFooter.new>aside ul, .weekly .commonFooter.new>aside ul, .weekly .commonFooter.new article>section{width:1000px;}
+.weekly .commonFooter.new{position: relative; z-index:10;}
+.baseGroup.weekly .leftGrid{width:680px;}
+.baseGroup.weekly .articleDetail p { color: #484848; line-height: 28px; font-size: 16px !important; font-family: Circular, "PingFang-SC", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "Heiti SC" !important; -webkit-font-smoothing: antialiased;}
+.baseGroup.weekly .articleDetail p>img{ max-width:600px;}
+.baseGroup.weekly h1{ color:#333; line-height:36px; font-weight:bold; font-size:32px; margin-bottom:5px; font-family: Circular, "PingFang-SC", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "Heiti SC" !important;}
+.baseGroup.weekly .moreInfo{ font-size:14px; color:#666; line-height:28px;}
+.baseGroup.weekly .moreInfo>span{ margin-right:10px; color:#666;}
+.baseGroup.weekly .fullImgGrid li{ width:50%;}
+.baseGroup.weekly .footerInfo { margin-top: 0; border-top: 0;}
+.baseGroup.weekly .articleMode {padding: 20px 40px;}
+.baseGroup.weekly .rightGrid{width: 370px; border: 1px solid #ddd; padding: 20px 35px 0; -moz-border-radius:4px; border-radius:4px;}
+.baseGroup.weekly .aside h3 { line-height: 20px; font-size: 16px; text-align: justify;}
+
+.rightGrid.fixed{position: fixed; top: 70px; left: 50%; margin-left: 230px;}
+
+/*
+* col
+*/
+.listMoreGroup.col4 .itemGrid li, .listHotGroup.col4 .itemGrid li{ width:25%;}

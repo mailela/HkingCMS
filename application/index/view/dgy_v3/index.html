@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="baidu-site-verification" content="dAEtGwEyN9" />
+    <title>{$seo_title}</title>
+    <script type="text/javascript" src="{TPL}/static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="{TPL}/static/js/js.js"></script>
+    <link href="{TPL}/static/plugin/iconfont/iconfont.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static/css/dgy.base.min.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static/css/dgy.head.min.css" rel="stylesheet" type="text/css" />
+    <link href="{TPL}/static/css/dgy.web.3.0.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{TPL}/static/plugin/swiper4/swiper-4.1.0.min.css">
+	<script src="{TPL}/static/plugin/swiper4/swiper-4.1.0.min.js"></script>
+    <script type="text/javascript" src="{TPL}/static/js/baseMotheds.js"></script>
+</head>
+<body>
+<div class="headGroup white fixed" id="headGroup">
+    <div class="headWrap">
+        <div class="logoWrap"><a class="logo fullWhite" title="{$site[site_name]}" href="{$site[site_url]}"></a></div>
+        <div class="menuWrap">
+            <ul>
+                <li><a {if !isset($catid)} class="current" {/if} href="{$site[site_url]}"><span>首页</span></a></li>
+                {m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+                {loop $data $v}
+                <li>
+                    <a{if isset($catid) && $v['catid']==$catid} class="current" {/if} href="{$v[pclink]}"><span>{$v[catname]}</span></a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="userWrap">
+            <div class="searchWrap" id="searchWrap">
+                <form method="get" action="{SITE_URL}index.php" target="_blank">
+                <input type="text" class="searchInput" name="q"/>
+                <input type="hidden" name="m" value="search" />
+                <input type="hidden" name="c" value="index" />
+                <input type="hidden" name="a" value="init" />
+                <input type="hidden" name="modelid" value="1" id="modelid" />
+                <button id="searchbtn" type="submit" class="searchBtn doBtn"><i class="iconfont icon-search"></i></button>
+                <div class="searchBtn coverBtn"><i class="iconfont icon-search"></i></div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- 置顶文章 -->
+    <div class="fullPitch">
+        {m:lists field="title,inputtime,nickname,url,catid" modelid="1" flag="1" limit="1"}
+        {loop $data $v}
+        <span>{get_catname($v['catid'])}</span>
+        <h2>
+            <a href="{$v[url]}" target="_blank" title="{$v[title]}">{str_cut($v['title'], 75)}</a>
+        </h2>
+        <div class="otherInfo">
+            <span>by.</span><span>{$v['nickname']}</span>
+        </div>
+        {/loop}
+    </div>
+    <!-- 热门标签 -->
+    <div class="fullTabs" id="headFullTabs">
+       <div class="menuBox">
+			{m:tag field="id,tag,total" limit="8"}
+			{loop $data $v}
+               <span><a href="{U('search/index/tag',array('id'=>$v['id']))}" target="_blank">{$v[tag]}</a></span>
+			{/loop}
+       </div>
+    </div>
+</div>
+	<!-- itemGrid for hot -->
+	<div class="baseGroup mb20 mt20" id="indexGroup">
+	    
+	    <div class="itemGroup">
+	        <!-- leftGrid -->
+	        <div class="leftGrid">
+	            <!-- indexFocusGrid 轮播图 后台banner模块配置 -->
+	            <div class="indexFocusGrid">
+    	            <div class="focusWrap swiper-container" id="indexFocusGrid">
+	                    <ul class="swiper-wrapper">
+        				    {m:banner field="title,image,url,typeid,status" limit="3"}
+        				    {loop $data $v}
+                	        <li class="swiper-slide">
+                        		<a href="{$v[url]}" title="{$v[title]}" target="_blank">
+                        	       <img class="img" src="{$v[image]}">
+                        		</a>
+                	        </li>
+        				    {/loop}
+    				    </ul>
+    				    <div class="overlay index"></div>
+                        <div class="focusNext swiper-button-next swiper-button-white"></div>
+                        <div class="focusPrev swiper-button-prev swiper-button-white"></div>
+                        <div class="indexPartyPagination commonSwiperPagination swiper-pagination" id="indexFocusPagination"></div>
+                    </div>
+	            </div>
+				<script>
+                    $(function(){
+                        var indexFocus = new Swiper('#indexFocusGrid',{
+                            loop: true, effect: 'fade', autoplay:{delay:4000,disableOnInteraction:false}, navigation: {nextEl:'.focusNext',prevEl:'.focusPrev'}, pagination: {el:'#indexFocusPagination'}
+                        });
+                    });
+				</script>
+	            <!-- / indexFocusGrid 轮播图 后台banner模块配置  -->
+	            
+	            <!-- fullImgGrid 焦点图 -->
+        	    <div class="midMenuGroup mb20">
+                	<div class="fullImgGrid v3">
+                	    <ul>
+        				    {m:lists field="title,thumb,url,inputtime,nickname,catid,description" modelid="1" thumb="1" flag="6" limit="3"}
+        				    {loop $data $v}
+                	        <li>
+                	            <a href="{$v[url]}" title="{$v[title]}" target="_blank" class="fullImgLink">
+                	                <div class="articleGrid v2">
+                	                    <div class="article"></div>
+                	                    <div class="otherInfo">
+                	                        <h2>{str_cut($v['title'], 60)}</h2>
+                	                    </div>
+                	                </div>
+                	                <i class="focusImg" style="background:url('{$v[thumb]}') no-repeat center; background-size:cover;"></i>
+                	            </a>
+                	        </li>
+        				    {/loop}
+                	    </ul>
+                	</div>
+        	    </div>
+	            <!-- / fullImgGrid -->
+	            
+	            <!-- itemBox 头条 -->
+	            <div class="itemBox mb20" style="padding:0;">
+    	            <div class="headGrid" style="padding:10px 22px 0;">
+    	                <h3 style="border-bottom:0;"><b>头条</b></h3>
+    	            </div>
+    	            <!-- listMoreGroup -->
+    	            <div class="listMoreGroup">
+    	                <div class="itemGrid">
+            	            <ul>
+                                {m:lists field="title,thumb,inputtime,nickname,url,description,catid" modelid="1" flag="2" limit="6"}
+                                {loop $data $v}	
+            	                <li>
+            	                    <div class="article_box">
+                	                    <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+                	                        <div class="tophead hoverImg">
+    	                                        <i class="iconFlag">{get_catname($v['catid'])}</i>
+												<img class="img" src="{$v[thumb]}">
+                	                        </div>
+                	                        <article class="h135">
+                	                            <h3>{str_cut($v['title'], 60)}</h3>
+                	                            <p class="h40 cf999 mt10">{str_cut($v['description'], 120)}</p>
+                    	                        <p class="mt15"><span class="cf_green f12">阅读全文 ></span></p>
+                	                        </article>
+                	                    </a>
+            	                    </div>
+            	                </li>
+                                {/loop}
+                                <div class="clearfix"></div>
+            			     </ul>
+            			     <div class="line"></div>
+        			     </div>
+        	        </div>
+    	            <!-- itemWrap -->
+	            </div>
+	            <!-- / itemBox 特别推荐 -->
+	            <!-- itemBox 特别推荐 - 精选 -->
+	            <div class="itemBox mb20" style="padding:0;">
+    	            <div class="headGrid" style="padding:10px 22px 0;">
+    	                <h3 style="border-bottom:0;"><b>精选</b></h3>
+    	            </div>
+    	            <!-- listMoreGroup -->
+    	            <div class="listMoreGroup">
+    	                <div class="itemGrid">
+            	            <ul>
+                                {m:lists field="title,thumb,inputtime,nickname,url,description,catid" modelid="1" flag="3" limit="15"}
+                                {loop $data $v}
+            	                <li>
+            	                    <div class="article_box">
+                	                    <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+                	                        <div class="tophead hoverImg">
+												<img class="img" src="{$v[thumb]}">
+                	                        </div>
+                	                        <article class="h135">
+                	                            <h3>
+													<span class="iconStatus sm mr5">{get_catname($v['catid'])}</span>
+                	                                {str_cut($v['title'], 50)}
+                	                            </h3>
+                	                            <p class="description cf999 mt15">{str_cut($v['description'], 170)}</p>
+                	                        </article>
+                	                    </a>
+            	                    </div>
+            	                </li>
+                                {/loop}
+                                <div class="clearfix"></div>
+            			     </ul>
+            			     <div class="line"></div>
+        			     </div>
+        	        </div>
+    	            <!-- / listMoreGroup -->
+	            </div>
+	            <!-- / itemBox 特别推荐 -->
+	            
+	        </div>
+	        <!-- rightGrid -->
+	        <div class="rightGrid h415">
+	            <!-- 最新发布 -->
+	            <div class="itemBox mb20">
+    	            <div class="headGrid">
+    	                <h3><b>最新</b></h3>
+    	            </div>
+    	            <div class="ulGrid point">
+    	                <ul>
+                            {m:lists field="title,inputtime,url" modelid="1" limit="5"}
+                            {loop $data $v}
+                            <li><a href="{$v[url]}" title="{$v[title]}" target="_blank"><i></i>{str_cut($v['title'], 75)}</a></li>
+                            {/loop}
+    	                </ul>
+    	            </div>
+	            </div>
+	            <!-- / 最新发布 -->
+	            <!-- 相关推荐 -->
+	            <div class="itemBox mb20">
+    	            <div class="headGrid">
+    	                <h3><b>热门</b></h3>
+    	            </div>
+    	            <div class="tabInfoBox detail">
+                        {m:lists field="title,thumb,inputtime,nickname,url,description,catid" modelid="1" flag="4" limit="5"}
+                        {loop $data $v}
+                        <div class="aside">
+                            <a href="{$v[url]}" title="{$v[title]}" target="_blank">
+	                            <h3>{$v['title']}</h3>
+	                            <div class="desc mb15">{str_cut($v['description'], 110)}</div>
+                            </a>
+                        </div>
+                        {/loop}
+    	            </div>
+    	            <div class="adGrid" id="hotGridParty">{adver(4)}</div>
+	            </div>
+	            <!-- / 相关推荐 -->
+	        </div>
+	        <div class="clearfix"></div>
+	    </div>
+	</div>
+{m:include "index","footer"}

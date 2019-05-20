@@ -1,0 +1,30 @@
+<div class="headGroup fixed" id="headGroup">
+    <div class="headWrap">
+        <div class="logoWrap"><a class="logo" title="{$site[site_name]}" href="{$site[site_url]}"></a></div>
+        <div class="menuWrap">
+            <ul>
+                <li><a {if !isset($catid)} class="current" {/if} href="{$site[site_url]}"><span>首页</span></a></li>
+                {m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+                {loop $data $v}
+                <li>
+                    <a{if isset($catid) && $v['catid']==$catid} class="current" {/if} href="{$v[pclink]}"><span>{$v[catname]}</span></a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="userWrap">
+            <div class="searchWrap" id="searchWrap">
+                <form method="get" action="{SITE_URL}index.php" target="_blank">
+                <input type="text" class="searchInput" name="q"/>
+                <input type="hidden" name="m" value="search" />
+                <input type="hidden" name="c" value="index" />
+                <input type="hidden" name="a" value="init" />
+                <input type="hidden" name="modelid" value="1" id="modelid" />
+                <button id="searchbtn" type="submit" class="searchBtn doBtn"><i class="iconfont icon-search"></i></button>
+                <div class="searchBtn coverBtn"><i class="iconfont icon-search"></i></div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

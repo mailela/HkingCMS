@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keywords" content="{$keywords}" />
+	<meta name="description" content="{$description}" />
+	<title>{$seo_title}</title>
+	<script type="text/javascript" src="{TPL}/static//js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="{TPL}/static//js/js.js"></script>
+	<link href="{TPL}/static//plugin/iconfont/iconfont.css" rel="stylesheet" type="text/css" />
+	<link href="{TPL}/static//css/dgy.base.min.css" rel="stylesheet" type="text/css" />
+	<link href="{TPL}/static//css/dgy.head.min.css" rel="stylesheet" type="text/css" />
+	<link href="{TPL}/static//css/dgy.web.3.0.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="{TPL}/static//js/baseMotheds.js"></script>
+
+</head>
+<body style="background:#fff;">
+<div class="headGroup fixed specialDetail whiteBg specialIndex" id="headGroup">
+	<div class="headWrap">
+		<!-- logoWrap -->
+		<div class="logoWrap"><a class="logo" title="{$site[site_name]}" href="{$site[site_url]}"></a></div>
+		<!-- menuWrap -->
+		<div class="menuWrap">
+			<ul>
+				<li><a {if !isset($catid)} class="current" {/if} href="{$site[site_url]}"><span>首页</span></a></li>
+				{m:nav field="catid,catname,arrchildid,pclink" where="parentid=0" limit="20"}
+				{loop $data $v}
+				<li>
+					<a{if isset($catid) && $v['catid']==$catid} class="current" {/if} href="{$v[pclink]}"><span>{$v[catname]}</span></a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="articleTitle" style="display:none">{$title}<span>/</span><span>{$nickname}</span></div>
+		<!-- userWrap -->
+		<div class="userWrap">
+			<!-- searchWrap -->
+			<div class="searchWrap" id="searchWrap">
+				<form method="get" action="{SITE_URL}index.php" target="_blank">
+					<input type="text" class="searchInput" name="q"/>
+					<input type="hidden" name="m" value="search" />
+					<input type="hidden" name="c" value="index" />
+					<input type="hidden" name="a" value="init" />
+					<input type="hidden" name="modelid" value="1" id="modelid" />
+					<button id="searchbtn" type="submit" class="searchBtn doBtn"><i class="iconfont icon-search"></i></button>
+					<div class="searchBtn coverBtn"><i class="iconfont icon-search"></i></div>
+				</form>
+			</div>
+			<!-- loginBox -->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!-- topBanner -->
+<div class="fullPitch list detail" style="background:url('{$thumb}') no-repeat center; background-size:cover;">
+	<div class="overlay"></div>
+	<div class="textGrid">
+		<div class="textBox">
+			<h1>{$title}</h1>
+			<div class="moreInfo"><span>{$nickname}</span><span>|</span><span>{date('Y/m/d',$updatetime)}</span></div>
+		</div>
+	</div>
+</div>
+
+<!-- itemGrid for hot -->
+<div class="baseGroup mb20 mt20">
+	<div class="itemGroup">
+		<!-- leftGrid -->
+		<div class="leftGrid">
+			<!-- articleMode -->
+			<div class="articleMode detail">
+				<div class="articleContent">
+					<div class="footerInfo top">
+						{m:centent_tag modelid="$modelid" id="$id" limit="10"}
+						{loop $data $v}
+						<a class="iconSpan" href="{U('search/index/tag',array('id'=>$v['id']))}" target="_blank">{$v[tag]}</a>
+						{/loop}
+					</div>
+					<div class="articleDetail">
+						{$content}
+					</div>
+					<div class="copyInfo">
+						<p class="theEnd"><span>-</span><b>THE END</b><span>-</span></p>
+						<div class="mt10">
+							<p>版权声明：本博客的文章如无特殊说明，均为原创，转载请注明出处。如未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利</p>
+						</div>
+					</div>
+
+					<!-- 猜你喜欢 -->
+					<div class="itemBox mb20 mt20" style="padding:10px 0;">
+						<div class="headGrid" style="padding:0;">
+							<h3><b>猜你喜欢</b></h3>
+						</div>
+						<div class="midMenuGroup guess mb20">
+							<div class="fullImgGrid">
+								<ul>
+									{m:lists field="title,thumb,url,inputtime,nickname,catid,description" modelid="$modelid" order="RAND()" limit="3"}
+									{loop $data $v}
+									<li>
+										<a href="{$v[url]}" title="{$v[title]}" target="_blank" class="fullImgLink">
+											<div class="articleGrid v2">
+												<div class="article"></div>
+												<div class="otherInfo">
+													<h2>{str_cut($v['title'], 60)}</h2>
+												</div>
+											</div>
+											<i class="focusImg" style="background:url('{$v[thumb]}') no-repeat; background-size:cover;"></i>
+										</a>
+									</li>
+									{/loop}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- / 猜你喜欢 -->
+
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!-- articleMode -->
+		</div>
+		<!-- / leftGrid -->
+		<!-- rightGrid -->
+		<div class="rightGrid h415">
+			<!-- 相关推荐 -->
+			<div class="itemBox mb20" style="padding:0;">
+				<div class="headGrid" style="padding:0; margin-bottom:20px;">
+					<h3><b>热门</b></h3>
+				</div>
+				<div class="tabInfoBox detail" style="padding:0;">
+					{m:hits field="title,thumb,inputtime,nickname,url,description,catid" modelid="$modelid" limit="5"}
+					{loop $data $v}
+					<div class="aside">
+						<a href="{$v[url]}" title="{$v[title]}" target="_blank" style="padding:4px 0;">
+							<h3>{$v['title']}</h3>
+							<div class="desc mb15">{str_cut($v['description'], 110)}</div>
+						</a>
+					</div>
+					{/loop}
+				</div>
+			</div>
+			<!-- / 相关推荐 -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+
+<script>
+	$(function(){
+		var _sP = 0, _sT = 0;
+		$(window).on("scroll resize", function() {
+			_sP = $(this).scrollTop();
+			if (_sP > 480) {
+				if( _sP >= _sT ){
+					$('#headGroup .articleTitle').hide().siblings('.menuWrap').show();
+				}else{
+					$('#headGroup .menuWrap').hide().siblings('.articleTitle').show();
+				}
+			}else{
+				$('#headGroup .articleTitle').hide().siblings('.menuWrap').show();
+			}
+			_sT = _sP;
+		});
+	});
+
+	function add_favorite(title) {
+		$.ajax({
+			type: 'POST',
+			url: '{U("api/index/favorite")}',
+			data: 'title='+title+'&url='+location.href,
+			dataType: "json",
+			success: function (msg) {
+				if(msg.status == 1){
+					$("#favorite").html('收藏成功');
+				}else{
+					alert('请先登录！');
+				}
+			}
+		});
+	}
+</script>
+<script type="text/javascript" src="{TPL}/static//js/articleMotheds.js"></script>
+{m:include "index","footer"}
